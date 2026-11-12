@@ -83,3 +83,32 @@ Open roles on https://careers.paystack.com/ (15 jobs, checked 2026-11-12):
 
 - 5 of 15 roles are South Africa-specific, including 2 revenue (business development) roles. INFERRED: South Africa is Paystack's current go-to-market push, so South African merchants may be a priority segment.
 - Head of Finance for the MFB. INFERRED: the bank is still being staffed up.
+
+## Update 2026-11-12: signal data sources checked for the signal matrix (step 7)
+
+All checked 2026-11-12 via web search. Search summaries, not full-page reads unless stated.
+
+### Fintech lending: FCCPC digital lenders register
+- Official register of approved digital lenders at fccpc.gov.ng. Reports: more than 400 lenders with full approval in 2026; 521 registered by early January 2026; compliance deadline 5 January 2026; conditional approvals withdrawn from non-compliant lenders; 45 loan apps blacklisted. FCCPC denied a June 2026 report of 48 new approvals (which would have made 505).
+- Sources: https://www.itedgenews.africa/nigeria-cleans-up-digital-lending-space-as-fccpc-cbn-approve-over-430-loan-apps-in-2026/ , https://guardian.ng/news/fccpc-moves-against-unregistered-loan-apps-revokes-conditional-approvals/ , https://nairametrics.com/2026/06/28/fccpc-denies-approving-48-loan-apps-rejects-505-lenders-claim/ , https://nairametrics.com/2025/11/13/fccpc-sets-january-5-2026-deadline-for-compliance-with-new-digital-lending-regulations/
+- Monthly count of new approvals: **Not found.**
+
+### Fintech: CBN licence upgrades
+- January 2026: CBN upgraded Moniepoint MFB, OPay, Kuda, PalmPay, Paga and others to national licences; national MFB minimum capital N5bn. Complete official 2026 list of licensees: **Not found.** Source: https://nairametrics.com/2026/01/26/cbn-upgrades-opay-moniepoint-other-major-fintechs-mfbs-to-national-status
+
+### Betting: licensed operator lists
+- NLRC national operator list at nlrc-gov.ng; Lagos State Lotteries and Gaming Authority (LSLGA) licensed and illegal operator pages. LSLGA listed more than 70 verified entities as of September 2025. NLRC cleared MSport and 18 others for sports betting (date not captured). Jurisdiction between NLRC and LSLGA is contested. A dated official 2026 list: **Not found.**
+- Sources: https://focusgn.com/africa/lagos-gaming-authority-sets-record-straight-on-betting-operator-list , https://www.newsexpressngr.com/news/205133/lottery-commission-clears-msport-18-others-for-sports-betting-gaming-business , https://www.vixio.com/insights/gc-lagos-state-regulator-claims-remote-gambling-licensees-has-no-legal-backing
+
+### Education: NUC university licences
+- NUC approved 33 new universities in 2025 (total 309; 168 private). On 31 July 2026 NUC presented provisional licences to two new private universities, including Sani Bello University, Kontagora. A February 2025 moratorium on new private universities was announced; whether it was lifted: **Not found.**
+- Sources: https://businessday.ng/news/article/nuc-expands-university-list-with-33-approvals/ , https://www.nuc.edu.ng/tag/private-universities-licenses
+
+### Government: state revenue digitisation
+- Examples of states digitising collections with existing vendors: Jigawa (eTranzact), Taraba sports gaming revenue (CWG Plc, 2025). MicroSave/NGF report scores revenue-authority digital readiness across 36 states and FCT. A machine-readable tender feed: **Not found.**
+- Sources: https://techcabal.com/2025/06/17/taraba-state-internal-revenue-service-partners-with-cwg-plc-to-digitise-sports-gaming-revenue-collection/ , https://www.microsave.net/2025/12/19/nigeria-dpi-readiness-of-states-the-intelligent-revenue-authority-ira-readiness-report/
+
+### Funding: Nigerian deal volume and trackers
+- Nigerian startups raised $78.6M across 15 disclosed deals in Q1 2026, down 28% year on year. Source: https://nairametrics.com/2026/05/25/top-10-best-funded-nigerian-startups-in-2026-so-far/
+- Trackers: Propel (https://www.propel.africa/ecosystems/nigeria/fintech), monthly lists at african-startups.com, Tracxn (1,103 fintech startups in Lagos listed).
+- 2026 rounds named: Cardtonic ($2.1M seed, Jan 2026), Stabyl ($2.7M pre-seed, Jun 2026), CreditChek (seed, 8 Jun 2026), Trade Lenda ($2M debt, Sep 2026), Yellow Card ($40M, Aug 2026). Sources: Propel and african-startups.com links above. Whether any is a Paystack customer: **Not found.**

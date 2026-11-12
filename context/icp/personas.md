@@ -3,6 +3,8 @@
 **Scope:** Nigerian mid-market and enterprise (see [icp.md](icp.md)).
 **Sources:** files in `context/docs/research/`. Pains are quoted word for word from customers on Paystack's Wall of Love and Corporates pages [customers.md]. INFERRED = our reading of the cited evidence. Gaps are listed at the end.
 
+**Speaker fit:** quotes from in-scope speakers (Tier 1 or 2 verticals, named enterprise or funded firms) are preferred. Where only a small-business speaker said it, the quote is tagged **(SMB speaker)**: the pain is real but unproven for this ICP.
+
 ---
 
 ## 1. Champion: technical lead
@@ -15,12 +17,12 @@
 
 **Top three pains (their words):**
 1. Lost payment notifications: "With webhooks, Paystack automatically notifies us of all successful transactions even when the customer's browser fails to send us a notification." (CTO, GUO Transport)
-2. Slow, hard integrations: "It took my developer months to integrate our former payment gateway. I integrated Paystack on my own in just a day" (Creative Director, Moda by Maryam)
+2. Hard integrations: "Integrating Paystack into our platform is the easiest we've ever had on any of our technology providers." (CEO, Aella Credit; a CEO, not a CTO, speaking about integration)
 3. Customers dropping off at checkout: "our conversion rates increased because people no longer had to leave our website to pay." (CTO, Printivo)
 
 **What makes them start looking:**
 - A new product that needs recurring billing: "Paystack's recurring billing feature helped us do that effectively." (CTO, Reliance HMO) [customers.md]
-- Payment failures with the current gateway: "Before Paystack, there were constant payments failures." (Marketing Manager, Garanntor Hosting) [customers.md]
+- Payment failures with the current gateway: "Before Paystack, there were constant payments failures." (Marketing Manager, Garanntor Hosting) **(SMB speaker)** [customers.md]
 - A marketplace that needs to split revenue (Selar) [customers.md]
 
 **Objections:**
@@ -34,14 +36,14 @@
 
 | | |
 |---|---|
-| **Job titles** (as quoted) | Senior Finance Officer, Director of Finance & Technology, Chief Risk Officer; CEO at founder-led firms [customers.md] |
+| **Job titles** (as quoted) | Senior Finance Officer, Director of Finance & Technology, Chief Risk Officer; CEO at founder-led firms [customers.md]. No CFO is quoted anywhere in the research; CFO as signer is a hypothesis |
 | **Example speakers** | Oluwafemi Owoeye (Senior Finance Officer, Farmcrowdy), Adetokunbo Adetona (Director of Finance & Technology, Nairabox), Daniel Watts (Chief Risk Officer, Renmoney), Akin Alabi (CEO, Nairabet), Razaq Ahmed (CEO, Cowrywise) [customers.md] |
 | **Measured on** | INFERRED from what they praise and what the corporate pitch stresses: reconciliation accuracy, settlement speed, chargeback losses, collections, cost per transaction [customers.md, voice.md] |
 
 **Top three pains (their words):**
 1. Reconciliation: "Before Paystack, reconciliation was a big issue and the process used to take weeks." (IT Consultant, St. Gregory's College) and "helps us easily reconcile the amounts customers pay us with what we actually have in the bank." (Senior Finance Officer, Farmcrowdy)
 2. Chargebacks: "Before Paystack, we had so many chargeback issues." (Director of Finance & Technology, Nairabox)
-3. Slow settlement: "unlike others where you have to call, send messages & wait for about a week to get paid." (Web Developer, AdNaira)
+3. Slow settlement: "unlike others where you have to call, send messages & wait for about a week to get paid." (Web Developer, AdNaira) **(SMB speaker)**. No in-scope speaker is quoted on settlement; the enterprise version is Paystack's own claim: "We settle all merchants before 10 AM, every morning" [voice.md]
 
 **What makes them start looking:**
 - Collections falling short: "we've seen a significant increase in our loan collections" (Chief Risk Officer, Renmoney) [customers.md]
@@ -52,6 +54,7 @@
 - Price: Nigeria local "1.5% + NGN 100", capped at NGN 2,000 [company.md]; answered by "Bulk volume discounts", "Zero integration fee", "Zero maintenance fee" [voice.md]. Competitor price comparison: Not found
 - Payout delays: Trustpilot complaints about pending payouts [customers.md]
 - Regulatory risk: Paystack is named among firms affected by the CBN caps [market.md]; Semafor raises capital-intensity questions about the MFB [company.md]
+- "You're becoming our competitor" (Tier 1 fintech lenders): Paystack MFB plans working capital loans, merchant cash advances and embedded accounts for startups [company.md]. INFERRED objection; not tested
 
 ---
 

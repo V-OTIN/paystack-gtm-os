@@ -15,6 +15,7 @@
 | Country | Registered business in Nigeria | Services "available only to businesses registered in" NG, GH, ZA, KE [company.md]; Nigeria is the core market [company.md] |
 | Takes payments digitally | Own website or app with checkout, or a digital product that bills users | The corporate offer (settlement, reconciliation, chargebacks, RM) assumes online volume [voice.md]; see Layer 2 |
 | In a Tier 1 or Tier 2 vertical | See 1b | [customers.md, company.md, voice.md] |
+| Not already a Paystack merchant | Exclude current customers from new-logo outbound. The named customers in 1b are **proof and lookalike seeds, not targets** | Named customers [customers.md]. The customer list to suppress needs Paystack's CRM (Open question 10) |
 
 ### 1b. Vertical priority, ranked by strength of evidence
 
@@ -28,12 +29,11 @@ Scoring: one point each for (1) a dedicated Paystack page or pricing for the ver
 | 2 | Large corporates and government | 2/4 | Corporates page, Relationship Manager, "Bulk volume discounts" [voice.md] | MTN, UPS, AXA Mansard (3) [customers.md] | Not found (quotes are general praise, not one workflow) | Not found |
 | 2 | Mobility and transport | 2/4 | None | Bolt, Moove, GUO Transport (3) [customers.md] | Driver payouts (Bolt), webhooks (GUO) [customers.md] | Not found |
 | 3 | Insurance and health | 1/4 | None | AXA Mansard, Reliance HMO (2) [customers.md] | Recurring billing for health plans (Reliance HMO) [customers.md] | Not found |
-| 3 | Global brands selling into Nigeria | 1/4 | "Paystack for Global Brands" [voice.md] | Not Nigerian; Qatar Airways, Crocs, Under Armour, Burger King named [customers.md] | Not found | Not found |
 | 3 | Media and subscriptions | 1/4 | None | BusinessDay (1) [customers.md] | Recurring billing, "over 10,000 subscribers" [customers.md] | Not found |
 
-Tier cutoffs: 3 to 4 points = Tier 1, 2 points = Tier 2, 1 point = Tier 3. AXA Mansard counts under both Corporates and Insurance. Global brands are not Nigerian, so they score on their page only.
+Tier cutoffs: 3 to 4 points = Tier 1, 2 points = Tier 2, 1 point = Tier 3. AXA Mansard counts under both Corporates and Insurance. Global brands were removed: they fail hard filter 1 (see Not a fit).
 
-**Rule for reps:** start with Tier 1. Work Tier 2 only with a live trigger from Layer 3. Treat Tier 3 as opportunistic until win data says otherwise.
+**Rule for reps:** start with Tier 1. Work Tier 2 only with a live trigger from Layer 3. Tier 3 is outside the ICP (fails filter 1a) until win data moves a vertical up.
 
 ### 1c. Size
 
@@ -47,29 +47,46 @@ Tier cutoffs: 3 to 4 points = Tier 1, 2 points = Tier 2, 1 point = Tier 3. AXA M
 
 ## Layer 2: Technographic
 
-| Criterion | Why it matters | Evidence |
-|---|---|---|
-| Takes payments on its own website or app | Core product is online checkout and APIs | "Collect one-time and recurring payments from your app or website" [voice.md] |
-| Runs recurring billing or subscriptions | Repeated customer use case | Reliance HMO, Workstation, BusinessDay quotes [customers.md] |
-| Pays out at volume (salaries, earnings, withdrawals, winnings) | Transfers product | PiggyVest, Bolt, Bento, Arena FunBox quotes [customers.md]; transfer pricing [company.md] |
-| Marketplace that splits revenue | Subaccounts / split payments | Selar, Weafricans quotes [customers.md] |
-| Needs KYC at signup | BVN and account lookup | BuyCoins quote [customers.md]; identity pricing [company.md] |
-| Bank-transfer collections per customer | Dedicated Virtual Accounts, "1% per transaction (capped at NGN 300)" | [company.md] |
-| Built on Shopify, WooCommerce, or uses Xero | Paystack partnerships | [company.md] |
-| Currently uses another gateway (detectable on the website) | Displacement target | BuiltWith can list sites by gateway [signals.md]. INFERRED: only a compound signal |
+Only row 1 is a filter. Rows 2 to 6 decide **which product and angle** to lead with, not whether the account qualifies. Row 8 decides displacement vs greenfield messaging.
+
+| # | Criterion | Role | Product it routes to | Evidence | Detection method in research |
+|---|---|---|---|---|---|
+| 1 | Takes payments on its own website or app | Filter | Checkout and APIs | "Collect one-time and recurring payments from your app or website" [voice.md] | INFERRED: visible on the website; no tool named |
+| 2 | Runs recurring billing or subscriptions | Angle | Subscriptions / recurring billing | Reliance HMO, Workstation, BusinessDay quotes [customers.md] | Not found |
+| 3 | Pays out at volume (salaries, earnings, withdrawals, winnings) | Angle | Transfers | PiggyVest, Bolt, Bento, Arena FunBox quotes [customers.md]; transfer pricing [company.md] | Not found |
+| 4 | Marketplace that splits revenue | Angle | Subaccounts / split payments | Selar, Weafricans quotes [customers.md] | Not found |
+| 5 | Needs KYC at signup | Angle | BVN and account lookup | BuyCoins quote [customers.md]; identity pricing [company.md] | Not found |
+| 6 | Bank-transfer collections per customer | Angle | Dedicated Virtual Accounts, "1% per transaction (capped at NGN 300)" | [company.md] | Not found |
+| 7 | Built on Shopify, WooCommerce, or uses Xero | Angle (plugin path) | Plugins and integrations | [company.md] | INFERRED: BuiltWith-style lookup [signals.md] |
+| 8 | Currently uses another gateway | Messaging | Displacement | BuiltWith can list sites by gateway [signals.md] | BuiltWith [signals.md]. INFERRED: compound only, pair with a Layer 3 signal |
+
+Finding detection methods for rows 2 to 6 is a step 7 task.
 
 ## Layer 3: Intent signals
 
-| Signal | Status | Evidence |
+No signal in the research is proven to predict a Paystack purchase (Open question 4). Signals are split by whether the research names a way to detect them.
+
+### 3a. Detectable today (data source named in research)
+
+| Signal | Data source | Link to buying | Evidence |
+|---|---|---|---|
+| Recent funding round, Nigerian company | Funding trackers: Disrupt Africa, Briter, Africa: The Big Deal, monthly funded-startup lists | INFERRED | Nigeria led Q3 2026 funding with $624M (single source); fintech most active sector [signals.md, market.md] |
+| Uses a competitor gateway on its website | BuiltWith | INFERRED; compound only | [signals.md] |
+| Dated regulatory deadlines (timing, not account signals) | Calendar: CBN caps 31 Dec 2026; data localisation 1 Jan 2027 | INFERRED | [market.md] |
+
+### 3b. Hypotheses for step 7 (no detection method in research)
+
+| Signal | Why it might matter | Evidence |
 |---|---|---|
-| Recent funding round (Nigeria) | Supported as a market fact; link to buying is INFERRED | Nigeria led Q3 2026 funding with $624M (single source); fintech most active sector [signals.md, market.md] |
-| Launching subscriptions or recurring billing | Supported | Recurring billing quotes [customers.md] |
-| Expanding from Nigeria into GH, KE, ZA or CI | INFERRED | Paystack operates in all five markets [company.md]; no source says expansion triggers a purchase [signals.md] |
-| Opening physical locations in Nigeria | Supported (product exists) | Physical Terminal for registered Nigerian businesses only [company.md] |
-| Hiring payments, finance-ops or payment-engineering roles | INFERRED | No evidence that hiring predicts a Paystack sale [signals.md] |
-| Current acquirer affected by CBN market-share caps (deadline 31 Dec 2026) | INFERRED | Caps on card issuing and merchant acquiring; OPay and Moniepoint named; Paystack also named as affected [market.md] |
-| Public complaints about a competitor's payouts or failures | INFERRED | Not researched yet [signals.md] |
-| Pains: failed payments, slow settlement, reconciliation, chargebacks | Supported as pains; detection method not found | Wall of Love quotes [customers.md] |
+| Launching subscriptions or recurring billing | Existing customers adopted Paystack for this | Recurring billing quotes [customers.md] |
+| Pays out at volume / launching a wallet | Existing customers adopted Paystack for transfers | PiggyVest, Arena FunBox quotes [customers.md] |
+| Expanding from Nigeria into GH, KE, ZA or CI | Paystack operates in all five | [company.md]; no source links expansion to buying [signals.md] |
+| Opening physical locations in Nigeria | Physical Terminal exists, Nigeria only | [company.md] |
+| Hiring payments, finance-ops or payment-engineering roles | None in research | [signals.md] |
+| Current acquirer affected by CBN market-share caps | OPay and Moniepoint named; Paystack also named as affected | [market.md] |
+| Public complaints about a competitor's payouts or failures | Not researched yet | [signals.md] |
+
+Pains (failed payments, settlement, reconciliation, chargebacks) are not signals. They live in [personas.md](personas.md).
 
 ## Layer 4: Persona
 
@@ -78,18 +95,27 @@ Three buyer personas, detailed in [personas.md](personas.md):
 | Role in deal | Who | Evidence of their voice |
 |---|---|---|
 | Champion | CTO / head of engineering | CTO quotes at GUO Transport, Printivo, Reliance HMO, Thrive Agric, FINT [customers.md] |
-| Economic buyer | CFO / finance director (CEO at founder-led firms) | Senior Finance Officer, Farmcrowdy; Director of Finance & Technology, Nairabox; Chief Risk Officer, Renmoney; CEO quotes at Nairabet, Cowrywise [customers.md] |
+| Economic buyer | Finance lead (CEO at founder-led firms). No CFO is quoted in the research, so "CFO" is a hypothesis | Senior Finance Officer, Farmcrowdy; Director of Finance & Technology, Nairabox; Chief Risk Officer, Renmoney; CEO quotes at Nairabet, Cowrywise [customers.md] |
 | Influencer | Digital, product, growth or operations lead | Chief Digital Officer, AXA Mansard; Chief Transformation Officer, MTN; Growth Lead, Carbon; Operations Manager, Bolt [customers.md] |
 
 ## Layer 5: Engagement readiness
 
 | Tier | Observable criteria | Evidence |
 |---|---|---|
-| Ready now | Nigerian mid-market or enterprise firm in a named vertical **and** a live trigger (funding, new recurring product, expansion, acquirer affected by the caps) | Layers 1 and 3 |
-| Warm | Fits Layer 1 and 2, uses a competitor gateway, no trigger yet | Displacement quotes: "After we left our previous payment gateway for Paystack..." [customers.md] |
-| Not yet | Fits Layer 1 only; no online payments or volume | INFERRED: the corporate offer (RM, volume discounts) assumes volume [voice.md] |
+| Ready now | Passes all 1a filters, Tier 1 vertical, **and** a 3a signal (funding in the last quarter, or a competitor gateway paired with funding) | Layers 1 and 3a |
+| Warm | Passes 1a filters, Tier 1 or 2, uses a competitor gateway, no 3a timing signal | Displacement quotes: "After we left our previous payment gateway for Paystack..." [customers.md] |
+| Not yet | Passes country filter only; no visible digital payments | INFERRED: the corporate offer (RM, volume discounts) assumes volume [voice.md] |
 
-Proof available for outreach: named enterprise logos [customers.md]; customer-stated results (about 30% of failed transactions recovered, prepaid orders up 15%) [customers.md]; next-morning settlement "before 10 AM" [voice.md].
+3b hypotheses do not move an account to "Ready now" until step 7 validates them.
+
+**Proof for outreach, by fit to this ICP** (all customer quotes are undated and likely years old [customers.md]):
+
+| Use for mid-market and enterprise | Do not lead with (small-business speakers) |
+|---|---|
+| Named logos: MTN, AXA Mansard, Bolt, Carbon, PiggyVest, Renmoney [customers.md] | "about 30% of all abandoned or failed transactions" recovered (Siscomedia Ltd) [customers.md] |
+| "a significant increase in our loan collections" (Chief Risk Officer, Renmoney) [customers.md] | "prepaid orders on Bentigos.ng have grown by 15%" (Bentigos.ng) [customers.md] |
+| "scaling perfectly to support our large transaction volumes" (Growth Lead, Carbon) [customers.md] | |
+| Settlement "before 10 AM, every morning" (Paystack's claim) [voice.md] | |
 
 ---
 
@@ -97,6 +123,8 @@ Proof available for outreach: named enterprise logos [customers.md]; customer-st
 
 | Who | Why | Evidence |
 |---|---|---|
+| Existing Paystack merchants | Not new-logo targets. INFERRED: route to account management for upsell (e.g. Paystack MFB accounts, credit) | [customers.md, company.md] |
+| Global brands without a Nigerian entity | Fail hard filter 1. Paystack markets to them ("Paystack for Global Brands" [voice.md]) but services are for businesses registered in NG, GH, ZA, KE [company.md]. Whether they need a local entity: Open question 11 | [voice.md, company.md] |
 | SMBs and sole traders | Self-serve in 30 minutes; outbound cost not justified | [voice.md]; scope decision |
 | Unregistered businesses | Below mid-market by definition. Terminal products require registration; "Starter Businesses" lets unregistered firms self-serve online payments | [company.md] |
 | Businesses outside Nigeria | Out of scope for now. GH, KE, ZA, CI are later phases | Scope decision |
@@ -117,3 +145,7 @@ Proof available for outreach: named enterprise logos [customers.md]; customer-st
 7. Business count: 200,000 (homepage) vs 300K (careers, CEO) [company.md]. Do not use either in copy until confirmed.
 8. Does the CBN cap force any Paystack customer or competitor customer to move? Not confirmed [market.md].
 9. Is the Paystack MFB corporate account the lead product for some segments? The homepage banner suggests it (INFERRED) [voice.md].
+10. The list of current Paystack merchants to suppress from outbound: needs Paystack's CRM. Not in public research.
+11. Can a global brand use Paystack without a Nigerian entity? The "Global Brands" page and the registration rule conflict [voice.md, company.md].
+12. Do Tier 1 fintech lenders see Paystack as a competitor? Paystack MFB plans working capital loans and embedded accounts for startups [company.md]. INFERRED risk; not tested.
+13. Betting regulation in Nigeria: not researched. Tier 1 betting carries unknown regulatory risk.
