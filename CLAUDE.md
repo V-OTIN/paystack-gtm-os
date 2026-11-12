@@ -9,6 +9,7 @@ Outbound focus (decided 2026-11-12): Nigerian mid-market and enterprise.
 - [context/icp/icp.md](context/icp/icp.md): five-layer ICP, not-a-fit list, open questions
 - [context/icp/personas.md](context/icp/personas.md): champion, economic buyer and influencer personas
 - [context/icp/signal-matrix.md](context/icp/signal-matrix.md): segments x personas angles, buying signals with scores, top 5 to build, workflow tracker
+- [context/docs/gtm-system.md](context/docs/gtm-system.md): end-to-end outbound system, step by step, with decisions, tools and four-pillar check
 - [context/docs/research/](context/docs/research/): company.md, customers.md, competitors.md, market.md, signals.md, voice.md
 
 ## How this folder works
