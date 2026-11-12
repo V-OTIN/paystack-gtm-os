@@ -36,6 +36,8 @@ Paystack (paystack.com). To be filled in after research (step 6).
 ## Tools
 - Claude Code (in VS Code): builds and maintains this Context OS
 - GitHub (V-OTIN): version control, the source of truth
+- Miro (plugin with MCP): diagrams and GTM flowcharts
+- Notion (claude.ai connector): where we publish finished docs; GitHub stays the source of truth
 - Clay: prospecting, enrichment, signals, Claygents (from Week 2)
 - HubSpot: CRM, pipeline and lifecycle (from Week 3)
 - n8n: automation layer (from Week 4)
