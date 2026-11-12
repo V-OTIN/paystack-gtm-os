@@ -5,75 +5,494 @@
     {
       "title": "Find and qualify accounts",
       "direction": "ltr",
-      "columns": ["1A", "1B", "1C", "1D", "1E", "1F", "1G", ["1I", "1J", "1H"]]
+      "columns": [
+        "1A",
+        "1B",
+        "1C",
+        "1D",
+        "1E",
+        "1F",
+        "1G",
+        [
+          "1I",
+          "1J",
+          "1H"
+        ]
+      ]
     },
     {
       "title": "Route, find people, write the message",
       "direction": "rtl",
-      "columns": ["2A", ["2B", "2C"], "2D", "2E", "2F", "2G", "2H", "2I"]
+      "columns": [
+        "2A",
+        [
+          "2B",
+          "2C"
+        ],
+        "2D",
+        "2E",
+        "2F",
+        "2G",
+        "2H",
+        "2I"
+      ]
     },
     {
       "title": "Send, sort replies, learn",
       "direction": "ltr",
-      "columns": ["3A", "3B", ["o1", "o2", "o3", "o4", "o5", "o6"], ["a1", "a2", "a3", "a4", "a5", "a6"], "3C", "3D"]
+      "columns": [
+        "3A",
+        "3B",
+        [
+          "o1",
+          "o2",
+          "o3",
+          "o4",
+          "o5",
+          "o6"
+        ],
+        [
+          "a1",
+          "a2",
+          "a3",
+          "a4",
+          "a5",
+          "a6"
+        ],
+        "3C",
+        "3D"
+      ]
     }
   ],
   "nodes": {
-    "1A": {"kind": "start", "title": "Context OS", "sub": "ICP, personas, signal matrix, facts", "tools": ["claude_code", "github"], "w": 300},
-    "1B": {"kind": "step", "title": "Buying signals", "sub": ["FCCPC new lenders", "Hiring abroad", "Payments hiring", "New betting licences", "Funded + competitor"], "tools": ["clay"]},
-    "1C": {"kind": "step", "title": "Find companies", "sub": "Signal first, match name to website", "tools": ["clay"]},
-    "1D": {"kind": "step", "title": "Enrich accounts", "sub": "Industry, headcount, funding, gateway, jobs", "tools": ["clay"]},
-    "1E": {"kind": "step", "title": "ICP fit gates", "sub": ["Registered in Nigeria", "Not a Paystack merchant", "Not a competitor", "Takes digital payments", "Tier 1 or 2 vertical", "Size rule"], "tools": ["clay"]},
-    "1F": {"kind": "decision", "title": "Pass?"},
-    "drop": {"kind": "exit", "title": "Drop, log the reason", "below": "1F"},
-    "1G": {"kind": "decision", "title": "Segment?"},
-    "1H": {"kind": "branch", "title": "Signal-led", "sub": "Fintech, mobility, education"},
-    "1I": {"kind": "exit", "title": "Betting: hold", "sub": "Until regulation is researched"},
-    "1J": {"kind": "exit", "title": "Corporates and government", "sub": "Account-based list for sales"},
-
-    "2A": {"kind": "decision", "title": "Competitor?"},
-    "2B": {"kind": "branch", "title": "Displacement path", "sub": "Competitor gateway script on site"},
-    "2C": {"kind": "branch", "title": "Greenfield path", "sub": "None detected"},
-    "2D": {"kind": "step", "title": "Product angle", "sub": ["Recurring: Subscriptions", "Payouts: Transfers", "Splits: Subaccounts", "KYC: Identity", "Else: Collections"]},
-    "2E": {"kind": "step", "title": "Find people", "sub": "Champion first, finance lead later. Max 2 per account", "tools": ["clay"], "w": 280},
-    "2F": {"kind": "step", "title": "Find and verify email", "sub": "Provider waterfall, then verify", "tools": ["clay"]},
-    "2G": {"kind": "decision", "title": "Email valid?"},
-    "li": {"kind": "exit", "title": "LinkedIn only", "below": "2G"},
-    "2H": {"kind": "decision", "title": "In HubSpot?"},
-    "skip": {"kind": "exit", "title": "Skip: owned or contacted", "below": "2H"},
-    "2I": {"kind": "step", "title": "Write the copy", "sub": "Workflow spec, then copy from approved facts only", "tools": ["claude_code"], "w": 280},
-
-    "3A": {"kind": "step", "title": "Send the sequence", "sub": "3 emails + 2 LinkedIn DMs. Any reply stops both", "tools": ["Sequencer TBD", "LinkedIn tool TBD"], "w": 300},
-    "3B": {"kind": "step", "title": "Sort replies", "sub": "AI tags each reply", "tools": ["n8n", "claude"]},
-    "o1": {"kind": "branch", "title": "Interested", "h": 80},
-    "o2": {"kind": "branch", "title": "Refers someone", "h": 80},
-    "o3": {"kind": "branch", "title": "Not now", "h": 80},
-    "o4": {"kind": "branch", "title": "Already a customer", "h": 80},
-    "o5": {"kind": "branch", "title": "Not a fit or happy elsewhere", "h": 80},
-    "o6": {"kind": "branch", "title": "Unsubscribes", "h": 80},
-    "a1": {"kind": "step", "title": "Create deal, hand to sales", "tools": ["hubspot"], "w": 300, "h": 80},
-    "a2": {"kind": "step", "title": "Add contact, restart at 3A", "w": 300, "h": 80},
-    "a3": {"kind": "exit", "title": "Snooze, re-enter on next signal", "w": 300, "h": 80},
-    "a4": {"kind": "exit", "title": "Add to suppression list", "w": 300, "h": 80},
-    "a5": {"kind": "exit", "title": "Log reason for the review", "w": 300, "h": 80},
-    "a6": {"kind": "exit", "title": "Suppress on all channels", "w": 300, "h": 80},
-    "3C": {"kind": "step", "title": "Pipeline", "sub": ["Engaged", "Meeting booked", "Opportunity", "Won or lost, with reason"], "tools": ["hubspot"]},
-    "3D": {"kind": "start", "title": "Weekly review", "sub": "Replies, meetings, fit fails, objections, bounces by signal and persona", "tools": ["claude_code", "github"], "w": 300, "align": "bottom"}
+    "1A": {
+      "kind": "start",
+      "title": "Context OS",
+      "sub": "ICP, personas, signal matrix, facts",
+      "tools": [
+        "claude_code",
+        "github"
+      ],
+      "w": 300
+    },
+    "1B": {
+      "kind": "step",
+      "title": "Buying signals",
+      "sub": [
+        "FCCPC new lenders",
+        "Hiring abroad",
+        "Payments hiring",
+        "New betting licences",
+        "Funded + competitor"
+      ],
+      "tools": [
+        "clay"
+      ]
+    },
+    "1C": {
+      "kind": "step",
+      "title": "Find companies",
+      "sub": "Signal first, match name to website",
+      "tools": [
+        "clay"
+      ]
+    },
+    "1D": {
+      "kind": "step",
+      "title": "Enrich accounts",
+      "sub": "Industry, headcount, funding, gateway, jobs",
+      "tools": [
+        "clay"
+      ]
+    },
+    "1E": {
+      "kind": "step",
+      "title": "ICP fit gates",
+      "sub": [
+        "Registered in Nigeria",
+        "Not a Paystack merchant",
+        "Not a competitor",
+        "Takes digital payments",
+        "Tier 1 or 2 vertical",
+        "Size rule"
+      ],
+      "tools": [
+        "clay"
+      ]
+    },
+    "1F": {
+      "kind": "decision",
+      "title": "Pass?"
+    },
+    "drop": {
+      "kind": "exit",
+      "title": "Drop, log the reason",
+      "below": "1F"
+    },
+    "1G": {
+      "kind": "decision",
+      "title": "Segment?"
+    },
+    "1H": {
+      "kind": "branch",
+      "title": "Signal-led",
+      "sub": "Fintech, mobility, education"
+    },
+    "1I": {
+      "kind": "exit",
+      "title": "Betting: hold",
+      "sub": "Until regulation is researched"
+    },
+    "1J": {
+      "kind": "exit",
+      "title": "Corporates and government",
+      "sub": "Account-based list for sales"
+    },
+    "2A": {
+      "kind": "decision",
+      "title": "Competitor?",
+      "w": 280
+    },
+    "2B": {
+      "kind": "branch",
+      "title": "Displacement path",
+      "sub": "Competitor gateway script on site"
+    },
+    "2C": {
+      "kind": "branch",
+      "title": "Greenfield path",
+      "sub": "None detected"
+    },
+    "2D": {
+      "kind": "step",
+      "title": "Product angle",
+      "sub": [
+        "Recurring: Subscriptions",
+        "Payouts: Transfers",
+        "Splits: Subaccounts",
+        "KYC: Identity",
+        "Else: Collections"
+      ]
+    },
+    "2E": {
+      "kind": "step",
+      "title": "Find people",
+      "sub": "Champion first, finance lead later. Max 2 per account",
+      "tools": [
+        "clay"
+      ],
+      "w": 280
+    },
+    "2F": {
+      "kind": "step",
+      "title": "Find and verify email",
+      "sub": "Provider waterfall, then verify",
+      "tools": [
+        "clay"
+      ]
+    },
+    "2G": {
+      "kind": "decision",
+      "title": "Email valid?"
+    },
+    "li": {
+      "kind": "exit",
+      "title": "LinkedIn only",
+      "below": "2G"
+    },
+    "2H": {
+      "kind": "decision",
+      "title": "In HubSpot?"
+    },
+    "skip": {
+      "kind": "exit",
+      "title": "Skip: owned or contacted",
+      "below": "2H"
+    },
+    "2I": {
+      "kind": "step",
+      "title": "Write the copy",
+      "sub": "Workflow spec, then copy from approved facts only",
+      "tools": [
+        "claude_code"
+      ],
+      "w": 280
+    },
+    "3A": {
+      "kind": "step",
+      "title": "Send the sequence",
+      "sub": "3 emails + 2 LinkedIn DMs. Any reply stops both",
+      "tools": [
+        "Sender tools TBD"
+      ],
+      "w": 300
+    },
+    "3B": {
+      "kind": "step",
+      "title": "Sort replies",
+      "sub": "AI tags each reply",
+      "tools": [
+        "n8n",
+        "claude"
+      ]
+    },
+    "o1": {
+      "kind": "branch",
+      "title": "Interested",
+      "h": 80
+    },
+    "o2": {
+      "kind": "branch",
+      "title": "Refers someone",
+      "h": 80
+    },
+    "o3": {
+      "kind": "branch",
+      "title": "Not now",
+      "h": 80
+    },
+    "o4": {
+      "kind": "branch",
+      "title": "Already a customer",
+      "h": 80
+    },
+    "o5": {
+      "kind": "branch",
+      "title": "Not a fit or happy elsewhere",
+      "h": 80
+    },
+    "o6": {
+      "kind": "branch",
+      "title": "Unsubscribes",
+      "h": 80
+    },
+    "a1": {
+      "kind": "step",
+      "title": "Create deal, hand to sales",
+      "tools": [
+        "hubspot"
+      ],
+      "w": 300,
+      "h": 80
+    },
+    "a2": {
+      "kind": "step",
+      "title": "Add contact, restart at 3A",
+      "w": 300,
+      "h": 80
+    },
+    "a3": {
+      "kind": "exit",
+      "title": "Snooze, re-enter on next signal",
+      "w": 300,
+      "h": 80
+    },
+    "a4": {
+      "kind": "exit",
+      "title": "Add to suppression list",
+      "w": 300,
+      "h": 80
+    },
+    "a5": {
+      "kind": "exit",
+      "title": "Log reason for the review",
+      "w": 300,
+      "h": 80
+    },
+    "a6": {
+      "kind": "exit",
+      "title": "Suppress on all channels",
+      "w": 300,
+      "h": 80
+    },
+    "3C": {
+      "kind": "step",
+      "title": "Pipeline",
+      "sub": [
+        "Engaged",
+        "Meeting booked",
+        "Opportunity",
+        "Won or lost, with reason"
+      ],
+      "tools": [
+        "hubspot"
+      ]
+    },
+    "3D": {
+      "kind": "start",
+      "title": "Weekly review",
+      "sub": "Replies, meetings, fit fails, objections, bounces by signal and persona",
+      "tools": [
+        "claude_code",
+        "github"
+      ],
+      "w": 300,
+      "align": "bottom"
+    }
   },
   "edges": [
-    ["1A", "1B"], ["1B", "1C"], ["1C", "1D"], ["1D", "1E"], ["1E", "1F"],
-    ["1F", "1G", "Yes"], ["1F", "drop", "No"],
-    ["1G", "1H"], ["1G", "1I"], ["1G", "1J"],
-    ["1H", "2A"],
-    ["2A", "2B"], ["2A", "2C"],
-    ["2B", "2D"], ["2C", "2D"],
-    ["2D", "2E"], ["2E", "2F"], ["2F", "2G"],
-    ["2G", "2H", "Yes"], ["2G", "li", "No"],
-    ["2H", "2I", "No"], ["2H", "skip", "Yes"],
-    ["2I", "3A"], ["3A", "3B"],
-    ["3B", "o1"], ["3B", "o2"], ["3B", "o3"], ["3B", "o4"], ["3B", "o5"], ["3B", "o6"],
-    ["o1", "a1"], ["o2", "a2"], ["o3", "a3"], ["o4", "a4"], ["o5", "a5"], ["o6", "a6"],
-    ["a1", "3C"], ["3C", "3D"]
+    [
+      "1A",
+      "1B"
+    ],
+    [
+      "1B",
+      "1C"
+    ],
+    [
+      "1C",
+      "1D"
+    ],
+    [
+      "1D",
+      "1E"
+    ],
+    [
+      "1E",
+      "1F"
+    ],
+    [
+      "1F",
+      "1G",
+      "Yes"
+    ],
+    [
+      "1F",
+      "drop",
+      "No"
+    ],
+    [
+      "1G",
+      "1H"
+    ],
+    [
+      "1G",
+      "1I"
+    ],
+    [
+      "1G",
+      "1J"
+    ],
+    [
+      "1H",
+      "2A"
+    ],
+    [
+      "2A",
+      "2B"
+    ],
+    [
+      "2A",
+      "2C"
+    ],
+    [
+      "2B",
+      "2D"
+    ],
+    [
+      "2C",
+      "2D"
+    ],
+    [
+      "2D",
+      "2E"
+    ],
+    [
+      "2E",
+      "2F"
+    ],
+    [
+      "2F",
+      "2G"
+    ],
+    [
+      "2G",
+      "2H",
+      "Yes"
+    ],
+    [
+      "2G",
+      "li",
+      "No"
+    ],
+    [
+      "2H",
+      "2I",
+      "No"
+    ],
+    [
+      "2H",
+      "skip",
+      "Yes"
+    ],
+    [
+      "2I",
+      "3A"
+    ],
+    [
+      "3A",
+      "3B"
+    ],
+    [
+      "3B",
+      "o1"
+    ],
+    [
+      "3B",
+      "o2"
+    ],
+    [
+      "3B",
+      "o3"
+    ],
+    [
+      "3B",
+      "o4"
+    ],
+    [
+      "3B",
+      "o5"
+    ],
+    [
+      "3B",
+      "o6"
+    ],
+    [
+      "o1",
+      "a1"
+    ],
+    [
+      "o2",
+      "a2"
+    ],
+    [
+      "o3",
+      "a3"
+    ],
+    [
+      "o4",
+      "a4"
+    ],
+    [
+      "o5",
+      "a5"
+    ],
+    [
+      "o6",
+      "a6"
+    ],
+    [
+      "a1",
+      "3C"
+    ],
+    [
+      "3C",
+      "3D"
+    ]
   ],
-  "loop": {"from": "3D", "to": "1A", "label": "Weekly loop: learnings update icp.md, signal-matrix.md and facts.md"}
+  "loop": {
+    "from": "3D",
+    "to": "1A",
+    "label": "Weekly loop: learnings update icp.md, signal-matrix.md and facts.md"
+  }
 }

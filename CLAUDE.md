@@ -84,7 +84,7 @@ Outbound focus (decided 2026-11-12): Nigerian mid-market and enterprise.
 - Claude Code (in VS Code): builds and maintains this Context OS
 - GitHub (V-OTIN): version control, the source of truth
 - Miro (plugin with MCP): diagrams and GTM flowcharts
-- Notion (claude.ai connector): where we publish finished docs; GitHub stays the source of truth
+- Notion (claude.ai connector): where we publish finished docs; GitHub stays the source of truth. Published copy: [Paystack GTM OS](https://app.notion.com/p/416ca87d1d13813a9634f2ab607eb29c) (private draft page; mirrors `context/` and `output/`, raw research not published; republish after changes)
 - Clay: prospecting, enrichment, signals, Claygents (from Week 2)
 - HubSpot: CRM, pipeline and lifecycle (from Week 3)
 - n8n: automation layer (from Week 4)
