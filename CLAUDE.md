@@ -1,7 +1,14 @@
 # Paystack GTM Context OS
 
 ## Company
-Paystack (paystack.com). To be filled in after research (step 6).
+Paystack (paystack.com), a Lagos-founded payments company owned by Stripe since October 2020. It helps businesses in Africa accept payments online and in person, pay out, bill recurrently and verify customers, with per-transaction pricing and no monthly fee. It is live in Nigeria, Ghana, Kenya, South Africa and Côte d'Ivoire, and since January 2026 it sits inside The Stack Group alongside Paystack Microfinance Bank and the Zap consumer app. Sources: [company.md](context/docs/research/company.md), [voice.md](context/docs/research/voice.md).
+
+Outbound focus (decided 2026-11-12): Nigerian mid-market and enterprise.
+
+### Key files
+- [context/icp/icp.md](context/icp/icp.md): five-layer ICP, not-a-fit list, open questions
+- [context/icp/personas.md](context/icp/personas.md): champion, economic buyer and influencer personas
+- [context/docs/research/](context/docs/research/): company.md, customers.md, competitors.md, market.md, signals.md, voice.md
 
 ## How this folder works
 - `context/icp/`: ICP, personas and signal matrix. Read before any targeting, list building or copy.
