@@ -18,7 +18,13 @@ Outbound focus (decided 2026-11-12): Nigerian mid-market and enterprise.
 - [context/docs/research/market.md](context/docs/research/market.md): regulation and market changes by country
 - [context/docs/research/signals.md](context/docs/research/signals.md): buying signals, hiring, and verified signal data sources (FCCPC, NLRC/LSLGA, NUC, CBN, funding)
 - [context/docs/research/voice.md](context/docs/research/voice.md): how Paystack describes itself, verbatim
-- `context/positioning/`, `context/messaging/`, `context/brand-kit/`: empty. Still to build (approved facts in `context/messaging/facts.md` are needed before any copy)
+- [context/positioning/value-proposition.md](context/positioning/value-proposition.md): job, pain, gain and proof per persona
+- [context/positioning/positioning.md](context/positioning/positioning.md): category, target, alternatives, unique value, proof, positioning statement
+- [context/positioning/competitors.md](context/positioning/competitors.md): competitor table, where Paystack wins and loses, how to respond
+- [context/messaging/messaging.md](context/messaging/messaging.md): core message, four pillars with proof, persona angles, words to use and avoid
+- [context/brand-kit/brand.md](context/brand-kit/brand.md): tone of voice and verbatim key phrases from Paystack's copy
+- [context/docs/case-studies.md](context/docs/case-studies.md): every customer story in the research (customer, size, industry, problem, result, quote, source)
+- `context/messaging/facts.md`: not yet created. Needed before /campaign-copy
 
 ### Campaigns
 - [output/campaigns/fccpc-approved-lenders/workflow-spec.md](output/campaigns/fccpc-approved-lenders/workflow-spec.md): W1 workflow spec (FCCPC newly approved lenders), STRUCTURE-APPROVED, copy pending
