@@ -24,11 +24,11 @@ Outbound focus (decided 2026-11-12): Nigerian mid-market and enterprise.
 - [context/messaging/messaging.md](context/messaging/messaging.md): core message, four pillars with proof, persona angles, words to use and avoid
 - [context/brand-kit/brand.md](context/brand-kit/brand.md): tone of voice and verbatim key phrases from Paystack's copy
 - [context/docs/case-studies.md](context/docs/case-studies.md): every customer story in the research (customer, size, industry, problem, result, quote, source)
-- `context/messaging/facts.md`: not yet created. Needed before /campaign-copy
+- [context/messaging/facts.md](context/messaging/facts.md): authorized copy facts (sender, locked value prop, approved claims, Renmoney as the only proof name, bans, CTA ladder). Approved for the bootcamp, not by Paystack
 
 ### Campaigns
 - [output/campaigns/campaign-strategy.md](output/campaigns/campaign-strategy.md): 18 ranked outbound campaign ideas with mother intent, segment, signal, angle, volume, difficulty and tier
-- [output/campaigns/fccpc-approved-lenders/workflow-spec.md](output/campaigns/fccpc-approved-lenders/workflow-spec.md): W1 workflow spec (FCCPC newly approved lenders), STRUCTURE-APPROVED, copy pending
+- [output/campaigns/fccpc-approved-lenders/workflow-spec.md](output/campaigns/fccpc-approved-lenders/workflow-spec.md): W1 workflow spec (FCCPC newly approved lenders) with approved copy (3 emails + 2 LinkedIn DMs), COPY-APPROVED
 
 ### Knowledge base (from the GTM Starter Kit)
 - [knowledge-base/playbooks/signal-matrix-framework.md](knowledge-base/playbooks/signal-matrix-framework.md): how to build the signal matrix

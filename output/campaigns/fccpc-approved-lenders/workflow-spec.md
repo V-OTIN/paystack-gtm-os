@@ -1,11 +1,11 @@
 # W1: FCCPC newly approved digital lenders
 
-**Status:** STRUCTURE-APPROVED 2026-11-12 · copy pending
+**Status:** COPY-APPROVED 2026-11-12 (approved by Valentine for the bootcamp; facts not yet approved by Paystack)
 
 **Workflow:** W1 in [signal-matrix.md](../../../context/icp/signal-matrix.md) (score 17/20). Segment: fintech lending, Tier 1, Nigeria.
 **Built from:** [icp.md](../../../context/icp/icp.md), [personas.md](../../../context/icp/personas.md), [signal-matrix.md](../../../context/icp/signal-matrix.md), [gtm-system.md](../../../context/docs/gtm-system.md), [signals.md](../../../context/docs/research/signals.md). Method: `knowledge-base/playbooks/workflow-anatomy.md`.
 **Facts:** `context/messaging/facts.md` does not exist yet. Every specific fact in copy stays a `{{placeholder}}` until it is approved there.
-**Approvals:** Gate 1 (sections 1 to 3) and Gate 2 (section 4) approved 2026-11-12. Gate 3 (section 5) approved 2026-11-12. Sections 6 and 7 completed on approval of Gate 3; open to change.
+**Approvals:** Gate 1 (sections 1 to 3) and Gate 2 (section 4) approved 2026-11-12. Gate 3 (section 5) approved 2026-11-12. Sections 6 and 7 completed on approval of Gate 3; open to change. Section 7 amended 2026-11-12 (3 emails + 2 DMs, all cells).
 
 ---
 
@@ -94,7 +94,7 @@ Axis 1, `entry_type`: 2 values (`new`, `backlog`). Axis 2, `gateway_status` afte
 | **C** | `entry_type` = backlog AND `gateway_status` = competitor | An established, approved lender with `{{competitor_name}}` on its site. No timing event: it has operated under approval for a while with a settled gateway | **Collections performance, lender to lender.** Lead with what Nigerian lenders measure: loan collections and reconciling what borrowers paid against the bank. Proof from lenders already on Paystack via `{{proof_point}}`. Displacement through peer comparison, not a feature list |
 | **D** | `entry_type` = backlog AND `gateway_status` = none_detected | An established, approved, app-first lender with an unknown stack and no timing event. The weakest cell: neither timing nor stack is known | **Peer pattern, low pressure.** How lenders like `{{proof_customer}}` run repayments and disbursement on Paystack, with KYC at onboarding as the second hook. Readiness: Warm (icp.md Layer 5), lighter sequence |
 
-**Readiness by cell** (icp.md Layer 5): A and B = Ready now. C and D = Warm.
+**Readiness by cell** (icp.md Layer 5): A and B = Ready now. C and D = Warm. (Sequence length is the same for all cells since the 2026-11-12 cadence amendment; readiness now affects send priority only.)
 
 **Recipient lens** (not an axis): the champion gets the integration side of each angle (one API, webhooks, virtual accounts, BVN lookup). The economic buyer, staggered after, gets the money side (collections rate, reconciliation, disbursement speed).
 
@@ -137,8 +137,8 @@ Not available to copy: `company_domain`, `app_names_raw`, `company_name_normalis
 |---|---|
 | **Periodicity** | Backlog: one-shot, run in batches (iron law 7: 10 rows first). New entries: monthly register diff (FCCPC update cadence not found [signals.md]; revisit after 3 runs) |
 | **Channel** | Both: email + LinkedIn (gtm-system.md step 8). Sequencer and LinkedIn tool: DECISION PENDING |
-| **Cells A and B (Ready now)** | Day 1 email, day 2 LinkedIn connect, day 4 email, day 6 LinkedIn DM if connected, day 9 email (gtm-system.md default, INFERRED) |
-| **Cells C and D (Warm)** | Day 1 email, day 2 LinkedIn connect, day 7 email (lighter, INFERRED) |
+| **All cells (A to D)** | Amended 2026-11-12 (approved by Valentine): 3 emails + 2 LinkedIn DMs for every cell. Day 1 email 1, day 2 LinkedIn connection request (no note), day 4 email 2, day 5 DM 1 if connected, day 9 email 3, day 10 DM 2 if connected (timings INFERRED) |
+| **Signature** | `{{sender_name}}`, `{{sender_title}}`: sequencer built-ins, resolved per inbox [facts.md] |
 | **Second persona** | Economic buyer enters 7 days after the champion's last step if no reply (INFERRED). Max 2 contacts per account (iron law 14) |
 | **Stop rules** | Any reply stops both channels (gtm-system.md step 9). Bounce marks the email invalid |
 
@@ -169,3 +169,173 @@ Not available to copy: `company_domain`, `app_names_raw`, `company_name_normalis
 ## Next
 
 `/campaign-copy` reads this file (GATE 1 checks the status and checklist), reads the angles back, and writes copy per cell. Copy is appended here and the status line advances.
+
+---
+
+## Copy
+
+Facts from `context/messaging/facts.md` only (approved by Valentine for the bootcamp, not by Paystack). Variables from section 6 only. Kit syntax: `{{variable}}`, `{spintax}`.
+
+### Email 1 (approved 2026-11-12)
+
+**Subject (same across the thread):** {repayments in, loans out|lender payments question|repayments and disbursement}
+
+**Line map**
+
+```
+{{first_name}},
+
+{{e1l1}}
+{{e1l2}}
+
+{{e1l3}}
+Renmoney's Chief Risk Officer has said their loan collections went up significantly on Paystack.
+
+{{e1cta}}
+
+{Best|Thanks|Cheers},
+{{sender_name}}
+```
+
+**{{e1l1}}: mother intent** (exhaustive by `entry_type`)
+- + entry_type = new (cells A, B): {{app_name}} was recently added to the FCCPC's list of approved digital lenders, so I'm guessing lending is about to pick up.
+- + entry_type = backlog (cells C, D): {{app_name}} is on the FCCPC's list of approved digital lenders, so I'm guessing a lot of money moves through it every day, in both directions.
+
+**{{e1l2}}: their setup** (exhaustive by `gateway_status`)
+- + gateway_status = competitor (A, C): Your website uses {{competitor_name}} for payments.
+- + gateway_status = none_detected (B, D): I couldn't tell from your website who handles payments, so I'm guessing it all runs inside the app.
+
+**{{e1l3}}: value prop** (locked lead-in; tail exhaustive by `persona`)
+- + persona = champion: Paystack lets lenders collect repayments and send out loans on one integration, with webhooks confirming each payment.
+- + persona = economic_buyer: Paystack lets lenders collect repayments and send out loans on one integration, and the money lands in your bank before 10 AM every morning.
+
+**Proof (static):** Renmoney's Chief Risk Officer has said their loan collections went up significantly on Paystack.
+
+**{{e1cta}}** (exhaustive by `gateway_status`)
+- + gateway_status = competitor: Would a side-by-side with {{competitor_name}} help, or is that already sorted?
+- + gateway_status = none_detected: Is that right, or do payments run somewhere else?
+
+**Sample as received (cell A, champion):**
+
+> Subject: repayments in, loans out
+>
+> {{first_name}},
+>
+> {{app_name}} was recently added to the FCCPC's list of approved digital lenders, so I'm guessing lending is about to pick up.
+> Your website uses {{competitor_name}} for payments.
+>
+> Paystack lets lenders collect repayments and send out loans on one integration, with webhooks confirming each payment.
+> Renmoney's Chief Risk Officer has said their loan collections went up significantly on Paystack.
+>
+> Would a side-by-side with {{competitor_name}} help, or is that already sorted?
+>
+> Best,
+> {{sender_name}}
+
+### Email 2 (approved 2026-11-12)
+
+**Subject:** Re: (same thread, unchanged). Day 4.
+
+**Line map**
+
+```
+{{first_name}},
+
+{{e2l1}}
+
+Each borrower can get a dedicated virtual account for repayments, direct debit covers scheduled ones, and loans go out by instant transfer.
+Paystack also checks BVN and bank account details at signup, through the same integration.
+Renmoney says it can onboard customers online much faster than before.
+
+{Want me to map how that would work for {{app_name}}?|Should I sketch how that would run for {{app_name}}?}
+
+{Best|Thanks|Cheers},
+{{sender_name}}
+```
+
+**{{e2l1}}: context waterfall** (priority order, first match wins)
+- + hiring_cluster = hiring: You're also hiring a {{role_title}}, so I'd guess the payments side of {{app_name}} is getting more attention.
+- + app_count_cluster = multi: With {{app_names}} to run, my guess is there's more than one repayment flow to keep in step.
+- + recently_funded = true: After your {{round_type}} round, I'd imagine loan volume is set to grow.
+- FALLBACK: Matching every repayment to the right borrower is usually where lending gets fiddly.
+
+**Sample as received (hiring route, cell A, champion):**
+
+> Subject: Re: repayments in, loans out
+>
+> {{first_name}},
+>
+> You're also hiring a {{role_title}}, so I'd guess the payments side of {{app_name}} is getting more attention.
+>
+> Each borrower can get a dedicated virtual account for repayments, direct debit covers scheduled ones, and loans go out by instant transfer.
+> Paystack also checks BVN and bank account details at signup, through the same integration.
+> Renmoney says it can onboard customers online much faster than before.
+>
+> Want me to map how that would work for {{app_name}}?
+>
+> Best,
+> {{sender_name}}
+
+### Email 3 (approved 2026-11-12)
+
+**Subject:** Re: (same thread, unchanged). Day 9. Static.
+
+```
+{{first_name}},
+
+{Last note from me on this.|I'll leave it here after this one.}
+
+{For context,|In case it helps,} Paystack is a Stripe company, live in Nigeria, Ghana, Kenya, South Africa and Côte d'Ivoire.
+
+{If payments sit with someone else at {{company_name}}, who should I speak to?|Is someone else the right person for payments at {{company_name}}?}
+
+{Best|Thanks|Cheers},
+{{sender_name}}
+```
+
+**Sample as received:**
+
+> Subject: Re: repayments in, loans out
+>
+> {{first_name}},
+>
+> Last note from me on this.
+>
+> For context, Paystack is a Stripe company, live in Nigeria, Ghana, Kenya, South Africa and Côte d'Ivoire.
+>
+> If payments sit with someone else at {{company_name}}, who should I speak to?
+>
+> Best,
+> {{sender_name}}
+
+### LinkedIn (approved 2026-11-12)
+
+**Day 2: connection request:** empty, no note.
+
+**Day 5: DM 1** (if connected; exhaustive by `entry_type`)
+
+```
+{{first_name}},
+{{dm1}}
+```
+
+- + entry_type = new (cells A, B): any plans to scale lending now that {{app_name}} is on the FCCPC's approved list?
+- + entry_type = backlog (cells C, D): are repayments at {{app_name}} mostly collected by bank transfer or by direct debit?
+
+**Day 10: DM 2** (static)
+
+```
+{Asking because|Only asking since} Paystack runs both sides for lenders on one integration: virtual accounts and direct debit for repayments, instant transfers for loans.
+{Happy to show how that would look for {{app_name}}.|Can send a short outline for {{app_name}} if useful.}
+```
+
+**Samples as received:**
+
+> DM 1 (new): {{first_name}}, any plans to scale lending now that {{app_name}} is on the FCCPC's approved list?
+>
+> DM 2: Asking because Paystack runs both sides for lenders on one integration: virtual accounts and direct debit for repayments, instant transfers for loans.
+> Happy to show how that would look for {{app_name}}.
+
+### Before launch
+
+Run a final manual read against `knowledge-base/playbooks/copy-iron-laws.md`, get Paystack to approve every fact in `context/messaging/facts.md`, and clear the five before-launch items above.
