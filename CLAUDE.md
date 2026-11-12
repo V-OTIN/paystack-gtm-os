@@ -21,7 +21,7 @@ Outbound focus (decided 2026-11-12): Nigerian mid-market and enterprise.
 - `context/positioning/`, `context/messaging/`, `context/brand-kit/`: empty. Still to build (approved facts in `context/messaging/facts.md` are needed before any copy)
 
 ### Campaigns
-- `output/campaigns/`: empty. W1 spec (`fccpc-approved-lenders/workflow-spec.md`) in progress, not yet saved
+- [output/campaigns/fccpc-approved-lenders/workflow-spec.md](output/campaigns/fccpc-approved-lenders/workflow-spec.md): W1 workflow spec (FCCPC newly approved lenders), STRUCTURE-APPROVED, copy pending
 
 ### Knowledge base (from the GTM Starter Kit)
 - [knowledge-base/playbooks/signal-matrix-framework.md](knowledge-base/playbooks/signal-matrix-framework.md): how to build the signal matrix
