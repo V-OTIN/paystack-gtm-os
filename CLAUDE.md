@@ -27,6 +27,7 @@ Outbound focus (decided 2026-11-12): Nigerian mid-market and enterprise.
 - `context/messaging/facts.md`: not yet created. Needed before /campaign-copy
 
 ### Campaigns
+- [output/campaigns/campaign-strategy.md](output/campaigns/campaign-strategy.md): 18 ranked outbound campaign ideas with mother intent, segment, signal, angle, volume, difficulty and tier
 - [output/campaigns/fccpc-approved-lenders/workflow-spec.md](output/campaigns/fccpc-approved-lenders/workflow-spec.md): W1 workflow spec (FCCPC newly approved lenders), STRUCTURE-APPROVED, copy pending
 
 ### Knowledge base (from the GTM Starter Kit)
