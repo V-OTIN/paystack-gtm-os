@@ -100,7 +100,7 @@ From `context/docs/case-studies.md` (58 stories, mostly undated).
 
 **Newly approved lender: plain note** (variant of 1)
 - Why it works without AI: the FCCPC approval is the whole hook; the list itself carries the relevance.
-- Core message: congratulate on approval, one line on money in and money out on one integration, one proof point, a yes/no question.
+- Core message: note the new FCCPC listing (no congratulations: banned in `context/messaging/facts.md`), one line on money in and money out on one integration, one proof point, a yes/no question.
 
 **Agencies: referral offer** (variant of 16)
 - Why it works without AI: every agency in the list builds client sites; the offer is the same for all.

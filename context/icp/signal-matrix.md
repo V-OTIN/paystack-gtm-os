@@ -99,7 +99,7 @@ Note: U6 scores 14 but is a base list, not a buying signal, so it is not ranked 
 
 | Rank | Signal | Why |
 |---|---|---|
-| 1 | **N1: FCCPC newly approved lenders** | Highest score (17). Primary segment. Public register, timely event, clean story ("congrats on full approval"), and a product match on both sides of a lender's money flow. Few competitors likely watch it (INFERRED) |
+| 1 | **N1: FCCPC newly approved lenders** | Highest score (17). Primary segment. Public register, timely event, clean story ("you were just added to the FCCPC's approved lenders list"; no congratulations, banned in `context/messaging/facts.md`), and a product match on both sides of a lender's money flow. Few competitors likely watch it (INFERRED) |
 | 2 | **U9: Nigerian companies hiring in GH, KE, ZA, CI** | Uses Paystack's clearest structural edge: live in all five markets [company.md]. Works across fintech, betting and mobility. Also matches Paystack's own South Africa push (5 of 15 open roles [signals.md]) |
 | 3 | **U2: Payments and finance-ops hiring naming a competitor** | Highest-volume universal build. Same Clay build across segments with keyword swaps. Competitor names route displacement copy |
 | 4 | **N3: New NLRC/LSLGA licensed betting operators** | Second Tier 1 segment. Reuses the N1 registry-diff pattern. Hold copy until betting regulation is researched (icp.md open question 13) |
