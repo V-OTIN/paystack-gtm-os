@@ -5,12 +5,42 @@ Paystack (paystack.com), a Lagos-founded payments company owned by Stripe since 
 
 Outbound focus (decided 2026-11-12): Nigerian mid-market and enterprise.
 
-### Key files
+## File index
+
+### Context
 - [context/icp/icp.md](context/icp/icp.md): five-layer ICP, not-a-fit list, open questions
 - [context/icp/personas.md](context/icp/personas.md): champion, economic buyer and influencer personas
 - [context/icp/signal-matrix.md](context/icp/signal-matrix.md): segments x personas angles, buying signals with scores, top 5 to build, workflow tracker
 - [context/docs/gtm-system.md](context/docs/gtm-system.md): end-to-end outbound system, step by step, with decisions, tools and four-pillar check
-- [context/docs/research/](context/docs/research/): company.md, customers.md, competitors.md, market.md, signals.md, voice.md
+- [context/docs/research/company.md](context/docs/research/company.md): products, pricing, markets, funding, team, leadership
+- [context/docs/research/customers.md](context/docs/research/customers.md): named customers, industries, Wall of Love testimonials
+- [context/docs/research/competitors.md](context/docs/research/competitors.md): competitors and how each positions itself
+- [context/docs/research/market.md](context/docs/research/market.md): regulation and market changes by country
+- [context/docs/research/signals.md](context/docs/research/signals.md): buying signals, hiring, and verified signal data sources (FCCPC, NLRC/LSLGA, NUC, CBN, funding)
+- [context/docs/research/voice.md](context/docs/research/voice.md): how Paystack describes itself, verbatim
+- `context/positioning/`, `context/messaging/`, `context/brand-kit/`: empty. Still to build (approved facts in `context/messaging/facts.md` are needed before any copy)
+
+### Campaigns
+- `output/campaigns/`: empty. W1 spec (`fccpc-approved-lenders/workflow-spec.md`) in progress, not yet saved
+
+### Knowledge base (from the GTM Starter Kit)
+- [knowledge-base/playbooks/signal-matrix-framework.md](knowledge-base/playbooks/signal-matrix-framework.md): how to build the signal matrix
+- [knowledge-base/playbooks/workflow-anatomy.md](knowledge-base/playbooks/workflow-anatomy.md): workflow layers and the Mother Intent Catalog
+- [knowledge-base/playbooks/copy-frameworks.md](knowledge-base/playbooks/copy-frameworks.md), [copy-iron-laws.md](knowledge-base/playbooks/copy-iron-laws.md), [copy-bans.yaml](knowledge-base/playbooks/copy-bans.yaml), [linkedin-dm-frameworks.md](knowledge-base/playbooks/linkedin-dm-frameworks.md): copy rules and frameworks
+- [knowledge-base/playbooks/clay/](knowledge-base/playbooks/clay/): iron-laws.md, expert.md, prompts.md, formulas.md, actions-data-credits.md
+- [knowledge-base/playbooks/templates/facts-template.md](knowledge-base/playbooks/templates/facts-template.md): template for the approved facts file
+- `knowledge-base/learnings/`: empty until campaigns run
+
+### Operating files
+- [weekly-priorities/2026-W45.md](weekly-priorities/2026-W45.md), [weekly-priorities/2026-W46.md](weekly-priorities/2026-W46.md): weekly goals
+- [work-log/2026-W45.md](work-log/2026-W45.md), [work-log/2026-W46.md](work-log/2026-W46.md): change logs
+- [README.md](README.md): repo overview
+- [.claude/settings.json](.claude/settings.json): project settings (Miro plugin enabled)
+- `meetings/`: empty
+
+### Tools
+- [tools/rex/](tools/rex/): Clay API client (start with README.md, GETTING_STARTED.md, clay-api-reference.md; table registry in registry/INDEX.md; ClayLens cost extension in claylens/)
+- [tools/crawl4ai/README.md](tools/crawl4ai/README.md), [tools/agent-browser/README.md](tools/agent-browser/README.md): research helpers
 
 ## How this folder works
 - `context/icp/`: ICP, personas and signal matrix. Read before any targeting, list building or copy.

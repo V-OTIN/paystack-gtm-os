@@ -112,3 +112,11 @@ All checked 2026-11-12 via web search. Search summaries, not full-page reads unl
 - Nigerian startups raised $78.6M across 15 disclosed deals in Q1 2026, down 28% year on year. Source: https://nairametrics.com/2026/05/25/top-10-best-funded-nigerian-startups-in-2026-so-far/
 - Trackers: Propel (https://www.propel.africa/ecosystems/nigeria/fintech), monthly lists at african-startups.com, Tracxn (1,103 fintech startups in Lagos listed).
 - 2026 rounds named: Cardtonic ($2.1M seed, Jan 2026), Stabyl ($2.7M pre-seed, Jun 2026), CreditChek (seed, 8 Jun 2026), Trade Lenda ($2M debt, Sep 2026), Yellow Card ($40M, Aug 2026). Sources: Propel and african-startups.com links above. Whether any is a Paystack customer: **Not found.**
+
+### Update 2026-11-12: FCCPC register structure (read directly)
+- Register URL: https://fccpc.gov.ng/registration-of-digital-money-lenders/approvals-of-dmls/ (parent page: https://fccpc.gov.ng/registration-of-digital-money-lenders/). Checked 2026-11-12, HTTP 200.
+- Format: plain HTML table, no download, search or filter. Columns (verbatim): "S/N", "NAME OF COMPANY", "NAME OF APP(S)", "REMARK". REMARK was empty in every row read. No approval date, RC number or website column; some app cells contain a website (e.g. "CREVANCE.COM", "WWW.LOANPRONI.COM").
+- Size: main "Approval" table runs S/N 1 to 526 (gaps not checked). No "last updated" date on the page.
+- The parent page says it lists "conditionally approved/fully approved companies/ digital money lending Apps". Further sections (conditional approvals, watchlist, delisted, CBN-licensed waivers) were seen only in a model summary (35 / 112 / 54 / 33 entries): **unverified**.
+- Example rows (verbatim): "NEXTPAYDAY LIMIT | NEXTPAYDAY APP"; "FAST POINT INTEGRATED LIMITED | MYCASHIER MOBILE, FAST POINT WEB APPS"; "YESCREDIT COMPANY LIMITED | YESCREDIT APP"; "FLASHCREDIT NIGERIA LIMITED | SPEEDYFINANCE APP AND FLASHFUND APP"; "DIGITAL DELIGHT INTEGRATED SUPPORT SERVICE LTD | (no app listed)".
+- Airtime/data lenders have a separate list: https://fccpc.gov.ng/registration-of-digital-money-lenders/approvals-of-airtime-data-lenders/ (not fetched).
