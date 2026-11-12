@@ -12,6 +12,7 @@ Outbound focus (decided 2026-11-12): Nigerian mid-market and enterprise.
 - [context/icp/personas.md](context/icp/personas.md): champion, economic buyer and influencer personas
 - [context/icp/signal-matrix.md](context/icp/signal-matrix.md): segments x personas angles, buying signals with scores, top 5 to build, workflow tracker
 - [context/docs/gtm-system.md](context/docs/gtm-system.md): end-to-end outbound system, step by step, with decisions, tools and four-pillar check
+- [diagrams/paystack-gtm-system.json](diagrams/paystack-gtm-system.json) and [.svg](diagrams/paystack-gtm-system.svg): flowchart spec and layout for the GTM system, drawn on the Miro board [Paystack GTM System](https://miro.com/app/board/uXjVEOwCk1Y=/)
 - [context/docs/research/company.md](context/docs/research/company.md): products, pricing, markets, funding, team, leadership
 - [context/docs/research/customers.md](context/docs/research/customers.md): named customers, industries, Wall of Love testimonials
 - [context/docs/research/competitors.md](context/docs/research/competitors.md): competitors and how each positions itself

@@ -1,6 +1,7 @@
 # Paystack outbound GTM system
 
 **Status:** design v1, 2026-11-12. Work in progress; validate with Paystack sales.
+**Diagram:** [Paystack GTM System on Miro](https://miro.com/app/board/uXjVEOwCk1Y=/) (flowchart of the 12 steps below; spec in `diagrams/paystack-gtm-system.json`, rebuild with the miro-gtm-flowchart skill).
 **Built from:** [icp.md](../icp/icp.md), [personas.md](../icp/personas.md), [signal-matrix.md](../icp/signal-matrix.md) and the kit playbooks in `knowledge-base/playbooks/` (workflow-anatomy, signal-matrix-framework, clay/iron-laws, copy-frameworks, linkedin-dm-frameworks).
 **Scope:** Nigeria, mid-market and enterprise, Tier 1 and 2 verticals. Fintech is the primary segment, betting secondary [signal-matrix.md].
 **Tool status:** tools named in CLAUDE.md are decided (Claude Code, GitHub, Clay from Week 2, HubSpot from Week 3, n8n from Week 4). Tools marked **DECISION PENDING** are kit examples, not choices yet.
