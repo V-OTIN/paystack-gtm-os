@@ -1,0 +1,36 @@
+{
+  "title": "How the FCCPC lenders workflow moves through Clay",
+  "subtitle": "Each row is a table. Follow the numbers left to right. Paid steps only run on rows that passed every step before them.",
+  "lanes": [
+    {"id": "excl", "name": "Exclusions", "note": "you upload it", "dashed": true},
+    {"id": "len", "name": "Lenders", "note": "one row per lender\non the register.\nThe main table.", "main": true},
+    {"id": "jobs", "name": "Jobs", "note": "open roles at\nready lenders", "dashed": true},
+    {"id": "con", "name": "Contacts", "note": "one row per person,\nmax 2 per lender"},
+    {"id": "mon", "name": "Register This Month", "note": "from month 2:\nthe monthly diff", "dashed": true}
+  ],
+  "steps": [
+    {"id": "x", "n": "0", "lane": "excl", "col": 2, "title": "Never contact", "text": "Competitors, named Paystack customers, FCCPC watchlist and delisted", "cost": null},
+    {"id": "s1", "n": "1", "lane": "len", "col": 1, "title": "Import the register", "text": "FCCPC approved lenders table as a CSV. First run: all backlog", "cost": "free"},
+    {"id": "s2", "n": "2", "lane": "len", "col": 2, "title": "Free checks", "text": "Clean names, count apps, domain from the app cell, watchlist check", "cost": "free"},
+    {"id": "s3", "n": "3", "lane": "len", "col": 3, "title": "Find the website", "text": "Claygent only where the app cell has no domain. Then exclusions by domain", "cost": "paid"},
+    {"id": "s4", "n": "4", "lane": "len", "col": 4, "title": "Gateway on website", "text": "BuiltWith: Paystack sites dropped, competitor or none detected kept", "cost": "paid"},
+    {"id": "s5", "n": "5", "lane": "len", "col": 5, "title": "Route to a cell", "text": "New or backlog x competitor or none = cells A to D", "cost": "free", "highlight": true},
+    {"id": "s6", "n": "6", "lane": "len", "col": 6, "title": "Company facts", "text": "Enrich Company (LinkedIn page) and Crunchbase funding", "cost": "paid"},
+    {"id": "s7", "n": "7", "lane": "jobs", "col": 7, "title": "Who is hiring", "text": "Find Jobs at ready lenders: payments, engineering, finance roles", "cost": "free"},
+    {"id": "s8", "n": "8", "lane": "con", "col": 8, "title": "Find 2 people", "text": "People search at ready lenders. Keep 1 champion and 1 economic buyer", "cost": "free"},
+    {"id": "s9", "n": "9", "lane": "con", "col": 9, "title": "Email and copy", "text": "Find and verify the email, write the lines, push to a paused sequencer", "cost": "paid"},
+    {"id": "m", "n": "M", "lane": "mon", "col": 1, "title": "Monthly: new names", "text": "Next month's register checked against Lenders. Only new names go in", "cost": "free"}
+  ],
+  "arrows": [
+    {"from": "s1", "to": "s2"},
+    {"from": "x", "to": "s2", "label": "checked against", "dashed": true},
+    {"from": "s2", "to": "s3"},
+    {"from": "s3", "to": "s4"},
+    {"from": "s4", "to": "s5"},
+    {"from": "s5", "to": "s6"},
+    {"from": "s6", "to": "s7"},
+    {"from": "s7", "to": "s8", "label": "lender facts go back\nto each person"},
+    {"from": "s8", "to": "s9"},
+    {"from": "m", "to": "s2", "label": "new names join Lenders\nas entry type new", "dashed": true}
+  ]
+}

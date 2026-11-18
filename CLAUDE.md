@@ -30,6 +30,8 @@ Outbound focus (decided 2026-11-12): Nigerian mid-market and enterprise.
 ### Campaigns
 - [output/campaigns/campaign-strategy.md](output/campaigns/campaign-strategy.md): 18 ranked outbound campaign ideas with mother intent, segment, signal, angle, volume, difficulty and tier
 - [output/campaigns/fccpc-approved-lenders/workflow-spec.md](output/campaigns/fccpc-approved-lenders/workflow-spec.md): W1 workflow spec (FCCPC newly approved lenders) with approved copy (3 emails + 2 LinkedIn DMs), COPY-APPROVED
+- [output/campaigns/fccpc-approved-lenders/clay-build/fccpc-approved-lenders-clay-build-guide.md](output/campaigns/fccpc-approved-lenders/clay-build/fccpc-approved-lenders-clay-build-guide.md): step-by-step Clay build guide for W1 (in clay-build/), with swimlane diagram (.png, .html, .json)
+- [output/campaigns/fccpc-approved-lenders/clay-build/exclusions.csv](output/campaigns/fccpc-approved-lenders/clay-build/exclusions.csv): W1 exclusions list for Clay import (competitors and named customers, with domains)
 
 ### Knowledge base (from the GTM Starter Kit)
 - [knowledge-base/playbooks/signal-matrix-framework.md](knowledge-base/playbooks/signal-matrix-framework.md): how to build the signal matrix
@@ -40,8 +42,8 @@ Outbound focus (decided 2026-11-12): Nigerian mid-market and enterprise.
 - `knowledge-base/learnings/`: empty until campaigns run
 
 ### Operating files
-- [weekly-priorities/2026-W45.md](weekly-priorities/2026-W45.md), [weekly-priorities/2026-W46.md](weekly-priorities/2026-W46.md): weekly goals
-- [work-log/2026-W45.md](work-log/2026-W45.md), [work-log/2026-W46.md](work-log/2026-W46.md): change logs
+- [weekly-priorities/2026-W45.md](weekly-priorities/2026-W45.md), [weekly-priorities/2026-W46.md](weekly-priorities/2026-W46.md), [weekly-priorities/2026-W47.md](weekly-priorities/2026-W47.md): weekly goals
+- [work-log/2026-W45.md](work-log/2026-W45.md), [work-log/2026-W46.md](work-log/2026-W46.md), [work-log/2026-W47.md](work-log/2026-W47.md): change logs
 - [README.md](README.md): repo overview
 - [.claude/settings.json](.claude/settings.json): project settings (Miro plugin enabled)
 - `meetings/`: empty
@@ -75,7 +77,7 @@ Outbound focus (decided 2026-11-12): Nigerian mid-market and enterprise.
 
 ## Skills (in .claude/skills, from the GTM Starter Kit)
 - Strategy: /signal-matrix, /campaign-strategy, /build-workflow-spec, /campaign-copy, /prompt-builder
-- Clay build: /campaign-contract, /design-clay-table-json, /import-clay-table, /build-clay, /save-clay-schema, /export-tables
+- Clay build: /clay-build-plan, /campaign-contract, /design-clay-table-json, /import-clay-table, /build-clay, /save-clay-schema, /export-tables
 - Clay cost and QA: /calculate-costs, /workspace-cost-audit, /campaign-qa
 - Deliverability: /inbox-placement-test
 - Research and diagrams: /crawl4ai, /agent-browser, /miro-gtm-flowchart
@@ -85,7 +87,7 @@ Outbound focus (decided 2026-11-12): Nigerian mid-market and enterprise.
 - GitHub (V-OTIN): version control, the source of truth
 - Miro (plugin with MCP): diagrams and GTM flowcharts
 - Notion (claude.ai connector): where we publish finished docs; GitHub stays the source of truth. Published copy: [Paystack GTM OS](https://app.notion.com/p/416ca87d1d13813a9634f2ab607eb29c) (private draft page; mirrors `context/` and `output/`, raw research not published; republish after changes)
-- Clay: prospecting, enrichment, signals, Claygents (from Week 2)
+- Clay: prospecting, enrichment, signals, Claygents (from Week 2). Official Clay plugin (clay@clay-plugins) and `clay` CLI installed 2026-11-15; skills load as clay:* (start with clay:clay)
 - HubSpot: CRM, pipeline and lifecycle (from Week 3)
 - n8n: automation layer (from Week 4)
 - Helpers in tools/: rex (Clay API client), crawl4ai, agent-browser

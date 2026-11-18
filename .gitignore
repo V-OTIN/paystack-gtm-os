@@ -12,3 +12,6 @@ venv/
 __pycache__/
 *.pyc
 node_modules/
+
+# W1 exclusions list (company names and domains, no people) is safe to commit
+!output/campaigns/fccpc-approved-lenders/clay-build/exclusions.csv

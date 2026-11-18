@@ -1,0 +1,19 @@
+Company Name,Domain,Type,Source
+OPay,opayweb.com,Competitor,icp.md not-a-fit; domain from competitors.md; site checked 2026-11-17
+Moniepoint,moniepoint.com,Competitor,icp.md not-a-fit; domain from competitors.md (moniepoint.com/ng)
+Monnify,monnify.com,Competitor,Moniepoint-owned gateway; domain from competitors.md
+Kuda,kuda.com,Competitor,workflow-spec.md section 2; site checked 2026-11-17
+PalmPay,palmpay.com,Competitor,icp.md not-a-fit; domain resolves but page content not confirmed 2026-11-17
+Paga,mypaga.com,Competitor,workflow-spec.md section 2; site checked 2026-11-17
+Flutterwave,flutterwave.com,Competitor,icp.md not-a-fit; domain from competitors.md
+Interswitch,interswitchgroup.com,Competitor,icp.md not-a-fit; domain from competitors.md
+Nomba,nomba.com,Competitor,icp.md not-a-fit; domain from competitors.md
+Kora,korahq.com,Competitor,icp.md not-a-fit; domain from competitors.md
+Squad,squadco.com,Competitor,icp.md not-a-fit; domain from competitors.md
+Renmoney,renmoney.com,Paystack customer,customers.md; site checked 2026-11-17
+Carbon,getcarbon.co,Paystack customer,customers.md; site checked 2026-11-17
+FairMoney,fairmoney.io,Paystack customer,customers.md; fairmoney.ng redirects here (checked 2026-11-17)
+FairMoney,fairmoney.ng,Paystack customer,customers.md; Nigerian domain that redirects to fairmoney.io
+Aella Credit,aellacredit.com,Paystack customer,workflow-spec.md section 2; site checked 2026-11-17
+Aella Credit,aellaapp.com,Paystack customer,workflow-spec.md section 2; second Aella domain (checked 2026-11-17)
+Branch,branch.co,Paystack customer,customers.md; branch.com.ng redirects here (checked 2026-11-17)
