@@ -314,14 +314,14 @@ When batch 1 is checked and approved, edit the numbers to `11` and `50` (and so 
 
 ### 4.2 `Company Domain Override` (plain text column)
 
-**+ Add column** → **Text**. Leave it empty. You type a domain here only after checking a `low` row yourself. Set its type to **URL**.
+**+ Add column** → **Text**. Leave it empty. Type a domain here only after checking a `low` row yourself, or type `-` to drop a row whose found domain is wrong (for example a parked page marked `high`). Keep it as **Text**, so `-` is allowed.
 
 ### 4.3 `Company Domain`
 
-- **Plain English:** *"Use Company Domain Override if filled. Otherwise use Domain From App if filled. Otherwise use the Claygent website only when its site_confidence is high. Write it plain: lowercase, no https://, no www., nothing after the first slash."*
+- **Plain English:** *"Blank if Company Domain Override is a dash. Use Company Domain Override if filled. Otherwise use Domain From App if filled. Otherwise use the Claygent website only when its site_confidence is high. Write it plain: lowercase, no https://, no www., nothing after the first slash."*
 - **Formula:**
 ```javascript
-(({{Company Domain Override}} || {{Domain From App}} || ({{Website (Claygent)}}?.site_confidence === "high" ? {{Website (Claygent)}}?.website : "") || "") + "").toLowerCase().replace(/^https?:\/\//, "").replace(/^www\./, "").split("/")[0]
+String({{Company Domain Override}} || "").trim() === "-" ? "" : (({{Company Domain Override}} || {{Domain From App}} || ({{Website (Claygent) Confidence}} === "high" ? {{Website (Claygent) Website}} : "") || "") + "").toLowerCase().replace(/^https?:\/\//, "").replace(/^www\./, "").split("/")[0]
 ```
 Set its type to **URL**.
 
@@ -363,7 +363,7 @@ The formulas below search the whole result as text, so they work whatever shape 
 
 | Column | Plain English | Formula |
 |---|---|---|
-| `Gateway Status` | Blank if Tech Stack hasn't run. paystack if the result mentions Paystack anywhere. Otherwise competitor if it mentions Flutterwave, Monnify, Interswitch or Remita. Otherwise none_detected | `!{{Tech Stack}} ? "" : /paystack/.test(JSON.stringify({{Tech Stack}}).toLowerCase()) ? "paystack" : /flutterwave\|monnify\|interswitch\|remita/.test(JSON.stringify({{Tech Stack}}).toLowerCase()) ? "competitor" : "none_detected"` |
+| `Gateway Status` | Blank if the lender did not pass the company gates. A BuiltWith "Domain not found" counts as none_detected. paystack if the result mentions Paystack anywhere. Otherwise competitor if it mentions Flutterwave, Monnify, Interswitch or Remita. Otherwise none_detected | `String({{Pass Company Gates?}}) !== "true" ? "" : /paystack/.test(JSON.stringify({{Tech Stack}} \|\| "").toLowerCase()) ? "paystack" : /flutterwave\|monnify\|interswitch\|remita/.test(JSON.stringify({{Tech Stack}} \|\| "").toLowerCase()) ? "competitor" : "none_detected"` |
 | `Competitor Name` | If Gateway Status is competitor, the first of Flutterwave, Monnify, Interswitch, Remita (in that order) found in Tech Stack. Otherwise blank | `{{Gateway Status}} !== "competitor" ? "" : ["Flutterwave", "Monnify", "Interswitch", "Remita"].find(n => JSON.stringify({{Tech Stack}}).toLowerCase().includes(n.toLowerCase())) \|\| ""` |
 
 > **"none_detected" never means "no gateway".** Lenders are app-first and BuiltWith reads websites only (spec section 4). That's why cells B and D never say "you have no gateway".
