@@ -2,6 +2,8 @@
 
 About 4 minutes, one take. Words in **[brackets]** are what to show on screen. Read the rest out loud.
 
+**Before you record:** open two tabs. Tab 1 is Companies (the building icon in the left sidebar, just under the two-people icon), with the segment list showing. Tab 2 is the workflow: https://app.clay.com/workspaces/1431348/terracotta/tc-workflows/wf_0torounJd78qewqch5K
+
 ---
 
 ## 1. Intro (20 seconds)

@@ -1,106 +1,73 @@
-# Week 2B: Audience segment + Workflow (W1 FCCPC approved lenders)
+# What we built in Clay for Week 2B, in plain English (W1 FCCPC approved lenders)
 
-Built 19 Nov 2026 for the Week 2B brief (Sandra Uche, "Your Week 2B build", resource PDF page 10). Built from Claude Code with the Clay plugin and CLI, checked in Clay. Workspace: Valentine's Workspace.
+Built 19 Nov 2026 for the Week 2B brief: one Audience segment connected to a Workflow that enriches and routes the records. Built from Claude Code with the Clay CLI, then checked in Clay. Workspace: Valentine's Workspace.
 
-## In one sentence (the audience criteria)
+## The idea
 
-Companies on the FCCPC digital lender register (Nigeria, W1 batch S/N 1 to 45) that have a verified website domain and are not on the W1 exclusion list.
+In Week 2 we tested the play in a Clay table: FCCPC-approved digital lenders, checked for a website and a payment gateway. Tables are for testing. Week 2B moves the same play into Audiences, where it can run again and again: one record per lender, one segment that picks the right lenders, and one workflow that checks each lender and writes the answer back to its record.
 
-**Entity:** companies. **Exclusions:** Paystack competitors, named Paystack customers and Paystack-owned companies (the W1 exclusions list). In this batch that removes Branch International (a named Paystack customer, customers.md) and Allawee Technologies (owned by Paystack, company.md). Lenders with no confirmed domain are left out too, because the enrichment needs a domain to run.
+Sandra's framework for this is SEA: **Segment** your audience, **Enrich** it, then **Act** on it.
 
-## How it maps to SEA (Segment, Enrich, Act)
+## What's where in Clay
 
-| Step | What we built | Where |
+| Thing | Name in Clay | Where to find it |
 |---|---|---|
-| Load | 45 lenders from the Week 2 Lenders table, written into the Companies audience by a small loader workflow | Workflow "W1 · Load FCCPC lenders to Audiences" |
-| Segment | "W1 · Lenders to enrich": 24 of the 45 match | Audiences > Companies |
-| Enrich | BuiltWith "Enrich website technologies" on each lender's domain (1 credit) | Workflow "W1 · Lender gateway check and routing" |
-| Act | A routing rule writes W1 Route back to the lender's record. Three destination segments fill from it | Same workflow, plus 3 segments |
+| The audience | 45 lenders in Companies | Sidebar: building icon (Companies) |
+| The segment the workflow runs on | **W1 · Lenders to enrich** (24 lenders) | Companies, segment list |
+| The workflow | **W1 · Lender gateway check and routing** (published) | Sidebar: Workflows |
+| The destinations | W1 · Ready for review (21), W1 · Needs research (1), W1 · Drop: already on Paystack (2) | Companies, segment list |
+| Helpers | W1 · FCCPC lenders (all loaded) segment (45); W1 · Load FCCPC lenders to Audiences workflow | Companies; Workflows |
 
-## The Audience
+The segment and workflow in bold are the deliverable. The rest supports them.
 
-**Fields added to Companies** (inputs from the register and Week 2): FCCPC S/N, FCCPC Register Name, FCCPC App Names, FCCPC Entry Type, FCCPC Snapshot Month, W1 Source, W1 Excluded, W1 Exclusion Reason, W1 Website Confidence. The default fields Company name, Domain and Country are filled too.
+## Step by step
 
-**Fields the workflow writes back** (outputs): W1 Gateway Status, W1 Gateway Name, W1 Route, W1 Cell, W1 Route Reason, and Technographics (the list of technologies BuiltWith found).
+1. **Added fields to Companies.** Audiences starts with basic fields (company name, domain, country). We added fields for what the FCCPC register tells us (S/N, register name, app names, entry type, snapshot month), what Week 2 found (website confidence, excluded or not, and why), and what the workflow will write back (gateway status, gateway name, route, cell, route reason).
+2. **Loaded the lenders.** A small workflow, "W1 · Load FCCPC lenders to Audiences", took the 45 batch lenders from the Week 2 Lenders table as a CSV and wrote one Audiences record per lender. Each record is matched on its FCCPC number (`fccpc-<S/N>`), so loading again updates the same record instead of making a copy. Clay also matched all 45 to its own company data (LinkedIn page, logo). Cost: 0 credits.
+3. **Made the segment.** "W1 · Lenders to enrich" is a saved filter: register lenders, in Nigeria, with a website domain, and not excluded. 24 of the 45 match. It drops Branch International (a Paystack customer) and Allawee (owned by Paystack), plus 19 lenders with no confirmed website, because the next step needs a website to check. Because it's a filter rather than a fixed list, any new lender that meets the rules joins on its own.
+4. **Chose one enrichment.** BuiltWith reads the technologies on each lender's website. We chose it because the payment gateway decides two things at once: whether we contact the lender at all (not if it already uses Paystack), and which message it gets (the cells in the workflow spec's routing matrix). It costs 1 credit per lender.
+5. **Built the workflow.** "W1 · Lender gateway check and routing" starts from the segment. For each lender:
+   - **BuiltWith** reads the website's technologies, using the domain on the record.
+   - **A code step** turns the list into a decision. No AI, no credits. It uses the same rules as the Week 2 Gateway Status column.
+   - **A rules step** sends the lender down one of three branches.
+   - **Each branch writes back** the gateway, route, cell and a one-line reason to the lender's own record (matched on its Audiences record ID, so it can't land on the wrong lender).
+6. **The routing rule.**
+   - Paystack on the site: **Drop** (spec exclusion X1).
+   - Flutterwave, Monnify, Interswitch or Remita on the site: **Ready for review**, cell C (cell A for a newly approved lender).
+   - No gateway visible: **Ready for review**, cell D (cell B if new).
+   - BuiltWith has no data for the domain: **Needs research**. Someone checks the site by hand.
+7. **Made the destinations visible.** Three more segments filter on the route field: Ready for review, Needs research, and Drop. They fill as the workflow writes back.
+8. **Tested small first.** We ran the draft on 10 lenders (10 credits) and checked every result against Week 2. Then we ran it on the other 14, choosing them by record ID so nobody was charged twice.
+9. **Published it.** The workflow is live. When next month's FCCPC approvals are loaded, any new lender that joins the segment is checked and routed automatically. Publishing didn't re-run the 24 already done.
 
-**Identifier:** the Audiences record ID. The loader matched on External record ID (`fccpc-<S/N>`) and then domain. The enrichment workflow writes back by record ID, so results always land on the same lender. Clay also matched 45 of 45 to its own company records (LinkedIn page, logo).
+## The result
 
-**Segments (all dynamic filters, no fixed lists):**
-
-| Segment | Filter | Records |
+| Route | Lenders | Who |
 |---|---|---|
-| W1 · FCCPC lenders (all loaded) | W1 Source = "W1 FCCPC register" | 45 |
-| W1 · Lenders to enrich | W1 Source = "W1 FCCPC register" AND Country = Nigeria AND Domain is not empty AND W1 Excluded is false | 24 |
-| W1 · Ready for review | W1 Source = "W1 FCCPC register" AND W1 Route = ready_for_review | 21 |
-| W1 · Needs research | W1 Source = "W1 FCCPC register" AND W1 Route = needs_research | 1 |
-| W1 · Drop: already on Paystack | W1 Source = "W1 FCCPC register" AND W1 Route = drop_paystack | 2 |
+| Ready for review, cell C (competitor) | 3 | Creditclan, CashRun (Flowood Lending), Provest: all on Flutterwave |
+| Ready for review, cell D (no gateway visible) | 18 | Acetech, Letshego, Kobogo, MyCashier (Fast Point), 9moni (OTP), Swiftkash (Altracred), MenaCred, CSENSE, Trivista, Nmoney (Finnew), Umba, Sycamore, Dot MFB, Oxymon, P2Vest, Yescredit, KKCash (Hollandale), Koins (Primera) |
+| Needs research | 1 | Instawave (secucash.vip): BuiltWith had no data, and the credit was refunded |
+| Drop: already on Paystack | 2 | Nextpayday, Creditville |
 
-The 45 to 24 cut: 19 lenders have no confirmed domain, and 2 are excluded (Branch, Allawee).
+This matches the Week 2 table lender for lender. The one change is deliberate: in Week 2, a lender BuiltWith knew nothing about counted as "no gateway" (cell D). Now it goes to Needs research, because we can't qualify a lender we know nothing about.
 
-## The Workflow
+## Funnel
 
-```
-Segment: W1 · Lenders to enrich
-  > BuiltWith: website technologies      (domain from the record)
-  > Classify gateway and pick route      (code, no AI, no credits)
-  > Route lender                          (rules)
-      ready_for_review  > Write back: Ready for review
-      drop_paystack     > Write back: Drop (on Paystack)
-      anything else     > Write back: Needs research   (default route)
-```
-
-**Why this enrichment:** the payment gateway on a lender's website decides both whether we contact the lender and which angle it gets. That is the routing matrix in the workflow spec (section 5).
-
-**The routing rule** (code saved as [classify-gateway-route.py](classify-gateway-route.py)):
-
-1. BuiltWith returns nothing for the domain: `needs_research` (check the site by hand).
-2. Paystack appears anywhere in the result: `drop_paystack` (spec exclusion X1).
-3. Flutterwave, Monnify, Interswitch or Remita appears: `ready_for_review`, gateway = competitor. Cell A if the entry type is new, C if backlog.
-4. Otherwise: `ready_for_review`, gateway = none_detected. Cell B if new, D if backlog.
-
-The competitor list and Paystack check are the same as the Week 2 Gateway Status formula. One deliberate change: in Week 2 a BuiltWith "no data" result counted as none_detected (cell D). Here it goes to Needs research, because we cannot qualify a lender we know nothing about.
-
-**Status:** published live (version 1, 19 Nov 2026). Any lender that newly enters "W1 · Lenders to enrich" runs through automatically, for example next month's FCCPC approvals once they are loaded. Publishing did not re-run the 24 lenders already done (checked: still 24 runs, no credits used).
-
-## Test results
-
-**Test 1, 10 lenders (draft):** 9 ready (Creditclan and CashRun: Flutterwave, cell C. Seven more in cell D), 1 dropped (Creditville: Paystack on site). 10 credits.
-
-**Run 2, the other 14 lenders (draft, by record ID so nothing ran twice):** this exercised the Needs research branch (Instawave, secucash.vip: BuiltWith had no data, and the credit was refunded) and the second Paystack drop (Nextpayday).
-
-**All 24:**
-
-| S/N | Lender | Domain | Route | Gateway | Cell |
-|---|---|---|---|---|---|
-| 1 | Creditclan Tech | creditclan.com | Ready for review | Flutterwave | C |
-| 20 | Flowood Lending (CashRun) | cashrunapp.com | Ready for review | Flutterwave | C |
-| 32 | Provest | provesting.com | Ready for review | Flutterwave | C |
-| 2, 3, 6, 9, 13, 14, 16, 18, 22, 25, 26, 28, 35, 37, 40, 41, 43, 44 | 18 lenders | | Ready for review | none detected | D |
-| 24 | Instawave Internet Technology | secucash.vip | Needs research | no data | |
-| 4 | Nextpayday | nextpayday.co | Drop | Paystack | |
-| 38 | Creditville Microfinance Bank | creditville.ng | Drop | Paystack | |
-
-**Check against Week 2:** the same 3 lenders in cell C, the same 2 Paystack drops, and the same lenders in D except secucash.vip (now Needs research, as explained above).
+45 lenders loaded, 24 in the segment, 24 enriched, 21 ready for review (3 in cell C, 18 in cell D), 1 needs research, 2 dropped.
 
 ## Cost
 
-| Step | Credits |
-|---|---|
-| Loader workflow, 45 writes to Audiences | 0 |
-| One BuiltWith action test on secucash.vip (no data, refunded) | 0 |
-| BuiltWith in the workflow, 24 lenders (23 charged, 1 refunded) | 23 |
-| Code, rules and write-backs | 0 |
-| **Total** | **23** (balance 30,147.9 to 30,124.9) |
+23 credits in total (balance 30,147.9 to 30,124.9): BuiltWith on 24 lenders, with 1 refunded. Loading, code, rules and write-backs were free. Workflow runs used: 45 for the loader and 24 for the gateway check. Free and trial workspaces may cap each workflow at 100 runs.
 
-Workflow runs used: loader 45, gateway check 24. Free and trial workspaces may cap each workflow at 100 runs in total.
+## Lessons
 
-## Links for the Build Log
+- **Tables test, Audiences run.** The logic came from Week 2's table unchanged. Audiences adds one record per lender that every workflow can write back to.
+- **Write results back as fields, then segment on them.** The route field makes the destinations visible and reusable for the next step (HubSpot in Week 3, sending later).
+- **Test 10, check, then run the rest by record ID.** Running the full segment again would have charged the first 10 twice.
+- **A "no data" result needs its own branch.** Without it, a lender we know nothing about looks like one with no gateway.
 
-- Workflow (enrich and route): https://app.clay.com/workspaces/1431348/terracotta/tc-workflows/wf_0torounJd78qewqch5K
-- Workflow (loader): https://app.clay.com/workspaces/1431348/terracotta/tc-workflows/wf_0toroqcwzYkmJY7khRx
-- Audience segments: open Audiences > Companies in Clay and copy each segment's link from the browser (the CLI does not return segment URLs). Segment IDs: Lenders to enrich `audseg_0torottZrA2CtCVMv6Y`, Ready for review `audseg_0torotvQvM4TtTb6VJ3`, Needs research `audseg_0torotyBNEUa5ZSjoks`, Drop `audseg_0torou0H2a4gcA7dZug`, all loaded `audseg_0torotrbvc8T3tPmCrP`.
-- These links open only for members of the workspace. If faculty cannot open them, use screenshots plus the Loom (same fallback as Week 2).
+## Links
 
-## Build Log text (paste-ready)
-
-> **Week 2B: Audience segment + Workflow.** Audience: companies on the FCCPC digital lender register (Nigeria) with a verified website, excluding Paystack competitors, customers and Paystack-owned companies. 45 lenders loaded, 24 in the segment "W1 · Lenders to enrich". Enrichment: BuiltWith website technologies, because the payment gateway on the site decides whether and how we approach the lender. Routing rule: Paystack on site = Drop; Flutterwave, Monnify, Interswitch or Remita = Ready for review (cell C); no gateway = Ready for review (cell D); no BuiltWith data = Needs research. Results are written back to each record, and three segments show the destinations. Test: 10 lenders first, then the other 14. Result: 21 Ready for review (3 C, 18 D), 1 Needs research, 2 Drop, matching the Week 2 table. Cost: 23 credits. Workflow published, so new lenders that join the segment are processed automatically. Built from Claude Code with the Clay CLI.
+- Workflow: https://app.clay.com/workspaces/1431348/terracotta/tc-workflows/wf_0torounJd78qewqch5K (opens for workspace members only)
+- Routing code: [classify-gateway-route.py](classify-gateway-route.py)
+- Loom script: [loom-script.md](loom-script.md)
